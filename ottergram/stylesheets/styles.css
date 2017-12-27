@@ -1,3 +1,15 @@
+@font-face {
+	font-family: 'airstreamregular';
+	src: url('fonts/Airstream-webfont.eot');
+	src: url('fonts/Airstream-webfont.eot?#iefix')
+		 format('embedded-opentype'),
+		 url('fonts/Airstream-webfont.woff') format('woff'),
+		 url('fonts/Airstream-webfont.ttf') format('truetype'),
+		 url('fonts/Airstream-webfont.svg#airstreamregular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
 @font-face
 {
 	font-family: 'lakeshore';
@@ -33,6 +45,12 @@ body
 	font-size: 18px;
 }
 
+.detail-image-frame
+{
+	position: relative;
+	text-align: center;
+}
+
 .detail-image
 {
 	width: 90%;
@@ -60,6 +78,8 @@ a
 .main-content
 {
 	flex: 1 1 auto;
+	display: flex;
+	flex-direction: column;
 }
 
 .thumbnail-image
@@ -71,21 +91,41 @@ a
 .thumbnail-item
 {
 	display: inline-block;
-	width: 120px;
+	min-width: 120px;
+	max-width: 120px;
 	border: 1px solid rgb(100%, 100%, 100%);
 	border: 1px solid rgba(100%, 100%, 100%, 0.8);
 }
 
 .thumbnail-list
 {
+	flex: 0 1 auto;
+	order: 2;
+	display: flex;
+	justify-content: space-between;
 	list-style: none;
 	padding: 0;
 	white-space: nowrap;
 	overflow-x: auto;
 }
 
-.thumbnail-item + .thumbnail-item
+.detail-image-container
 {
-	margin-top: 10px;
+	flex: 1 1 auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
+
+.detail-image-title
+{
+	position: absolute;
+	bottom: -16px;
+	left: 4px;
+	font-family: airstreamregular;
+	color: white;
+	text-shadow: rgba(0, 0, 0, 0.9) 1px 2px 9px;
+	font-size: 40px;
+}
+
 
