@@ -49,6 +49,14 @@ body
 {
 	position: relative;
 	text-align: center;
+
+	transition: transform 1000ms cubic-bezier(.29,.48,.5,1.22);
+}
+
+.is-tiny
+{
+	transform: scale(0.001);
+	transition: transform 0ms;
 }
 
 .detail-image
