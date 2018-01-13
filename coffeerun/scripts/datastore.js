@@ -1,9 +1,15 @@
 (function (window) {
     'use strict';
     var App = window.App || {};
+    var dataCount = 0;
 
     function DataStore()
     {
+        dataCount++;
+        if (dataCount > 1)
+        {
+            return;  // делаем data закрытым? одноразовым?
+        }
         this.data = {};
     }
 
