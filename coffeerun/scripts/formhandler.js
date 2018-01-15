@@ -18,7 +18,7 @@
 
     }
 
-    FormHandler.prototype.addSubmitHandler = function ()
+    FormHandler.prototype.addSubmitHandler = function (fn)
     {
         console.log('Setting submit handler for form');
         this.$formElement.on('submit', function (event)
@@ -31,7 +31,20 @@
                 data[item.name] = item.value;
                 console.log(item.name + ' is ' + item.value);
             });
+            if (data['strength'] === '100')
+            {
+                if (data['size'] === 'coffeeZilla')
+                {
+                    if (data['flavor'] !== '')
+                    {
+                        console.log('You are monster!');
+                    }
+                }
+            }
             console.log(data);
+            fn(data);
+            this.reset();
+            this.elements[0].focus();
         });
     };
 
