@@ -8,18 +8,30 @@
             throw new Error('No selector provided');
         }
         this.$element = $(selector);
+        this.element = document.querySelector(selector);
         if (this.$element.length === 0) {
             throw new Error('Could not find element with selector: ' + selector);
         }
     }
 
-    CheckList.prototype.addClickHandler = function (fn) {
+   /* CheckList.prototype.addClickHandler = function (fn) {
         this.$element.on('click', 'input', function (event) {
             var email = event.target.value;
             this.removeRow(email);
             fn(email);
         }.bind(this));
+    };*/
+
+    CheckList.prototype.addDoubleClickHandler = function ()
+    {
+        this.element.addEventListener('dblclick', function(event){
+            var email = event.target.innerHTML;
+            console.log('Редактирование заказа', email);
+            console.log('data: ', this.element.innerHTML);
+        }.bind(this));
     };
+
+
 
     CheckList.prototype.addRow = function (coffeeOrder)
     {
@@ -79,6 +91,8 @@
         }
 
         }
+
+
 
     App.CheckList = CheckList;
     window.App = App;
