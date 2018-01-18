@@ -48,6 +48,41 @@
         });
     };
 
+    FormHandler.prototype.addInputHandler = function (fn)
+    {
+        console.log('Setting input handler for form');
+        this.$formElement.on('input', '[name="emailAddress"]', function (event)
+        {
+            var emailAddress = event.target.value;
+            var message = '';
+            if (fn(emailAddress))
+            {
+                event.target.setCustomValidity('');
+            }
+            else
+            {
+                message = emailAddress + ' is not an authorized email address!';
+                event.target.setCustomValidity(message);
+            }
+        });
+    };
+
+    FormHandler.prototype.addInputCoffee = function (fn) {
+        this.$formElement.on('input', '[name="coffee"]', function (event) {
+            var nameCoffee = event.target.value;
+            var message = '';
+            if (fn(nameCoffee))
+            {
+                event.target.setCustomValidity('');
+            }
+            else
+            {
+                message = nameCoffee + ' is not an authorized name coffee!';
+                event.target.setCustomValidity(message);
+            }
+        });
+    };
+
     App.FormHandler = FormHandler;
     window.App = App;
 })(window);
