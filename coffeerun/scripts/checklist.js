@@ -14,13 +14,16 @@
         }
     }
 
-   /* CheckList.prototype.addClickHandler = function (fn) {
+   CheckList.prototype.addClickHandler = function (fn) {
         this.$element.on('click', 'input', function (event) {
             var email = event.target.value;
-            this.removeRow(email);
-            fn(email);
+            fn(email)
+                .then(function ()
+                {
+                    this.removeRow(email);
+                }.bind(this));
         }.bind(this));
-    };*/
+    };
 
     CheckList.prototype.addDoubleClickHandler = function ()
     {
