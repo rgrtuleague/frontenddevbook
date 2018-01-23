@@ -28,7 +28,7 @@
                 },
                     function ()
                     {
-                        alert('Server uncreachable. Try again later');
+                        alert('Server unreachable. Try again later');
                     }
             );
     });
